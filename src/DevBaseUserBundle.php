@@ -7,7 +7,7 @@ namespace DevBase\UserBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\Kernel;
 
-class UserBundle extends Bundle
+class DevBaseUserBundle extends Bundle
 {
 	/**
 	 * {@inheritDoc}
