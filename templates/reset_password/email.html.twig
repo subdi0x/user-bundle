@@ -1,0 +1,7 @@
+<h1>Cześć {{ userName }}!</h1>
+
+<p>Aby zresetować hasło do swojego konta kliknij na poniższy link</p>
+
+<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+
+<p>Pozdrawiam!</p>

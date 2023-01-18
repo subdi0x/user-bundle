@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zresetuj hasło{% endblock %}
+
+{% block top_label %}
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    </p>
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+    <div class="position-relative" style="height: 88vh">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="card" style="width: 350px">
+                <div class="card-header">
+                    Password Recovery
+                </div>
+                <div class="card-body">
+                    <p>If an account exists with the e-mail address provided, a link has just been sent to reset your password.<br/>
+                        The link will expire in {{ tokenLifetime|date('g') }} hour.<br/>
+                        If the message did not arrive, check the spam folder or you can <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+                </div>
+            </div>
+
+            <a href="{{ path('app_login') }}">
+                <span>Login</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{
+  "name": "subdi0x/user-bundle",
+  "version": "0.1.0",
+  "type": "symfony-bundle",
+  "description": "Base UserBundle for Symfony providing user-management features out-of-the-box.",
+  "keywords": [
+    "user",
+    "user-bundle"
+  ],
+  "homepage": "https://github.com/subdi0x/user-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Subdi0x",
+      "email": "subdi0x@protonmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.0.2",
+    "ext-json": "*",
+    "doctrine/doctrine-bundle": "^2.5",
+    "doctrine/orm": "^2.10",
+    "symfony/asset": "^6.0",
+    "symfony/config": "^6.0",
+    "symfony/console": "^6.0",
+    "symfony/dependency-injection": "^6.0",
+    "symfony/event-dispatcher": "^6.0",
+    "symfony/form": "^6.0",
+    "symfony/http-foundation": "^6.0",
+    "symfony/http-kernel": "^6.0",
+    "symfony/options-resolver": "^6.0",
+    "symfony/property-access": "^6.0",
+    "symfony/mailer": "^6.0",
+    "symfony/mime": "^6.0",
+    "symfony/routing": "^6.0",
+    "symfony/security-bundle": "^6.0",
+    "symfony/translation": "^6.0",
+    "symfony/twig-bundle": "^6.0",
+    "symfony/validator": "^6.0",
+    "symfony/yaml": "^6.0",
+    "symfonycasts/reset-password-bundle": "^1.7",
+    "symfonycasts/verify-email-bundle": "^1.1"
+  },
+  "require-dev": {
+    "doctrine/doctrine-fixtures-bundle": "^3.4",
+    "symfony/framework-bundle": "^6.0",
+    "symfony/phpunit-bridge": "^6.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "DevBase\\UserBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DevBase\\UserBundle\\Tests\\": "tests/"
+    }
+  }
+}

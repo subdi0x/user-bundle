@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset Password{% endblock %}
+
+{% block top_label %}
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    </p>
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+    <div class="position-relative" style="height: 88vh">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            {% if app.user %}
+                <div class="mb-3">
+                    <div class="alert alert-success text-center">
+                        Jesteś zalogowany jako <b>{{ app.user.username }}</b>,<br><a href="{{ path('app_logout') }}">wyloguj się</a>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Register -->
+                <div class="card" style="width: 350px">
+                    <div class="card-header">
+                        Password Recovery
+                    </div>
+                    <div class="card-body">
+                        <p>Enter the e-mail address that you provided when registering your account in the field below.<br/>
+                            You will then receive a code to reset your password.</p>
+                        {% form_theme requestForm 'bootstrap_4_layout.html.twig' %}
+                        {{ form_start(requestForm) }}
+                        <div class="mb-3">
+                            {{ form_row(requestForm.email) }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Reset</button>
+                        {{ form_end(requestForm) }}
+                    </div>
+                </div>
+
+                <a href="{{ path('app_login') }}">
+                    <span>Login</span>
+                </a>
+                <br/>
+                <a href="{{ path('app_register') }}">
+                    <span>Register</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

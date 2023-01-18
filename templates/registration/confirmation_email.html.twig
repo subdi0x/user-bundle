@@ -1,0 +1,14 @@
+<h1>Cześć!</h1>
+<p>
+    Konto zostało poprawnie utworzone.
+</p>
+
+<p>
+    Aby móc w pełni korzystać z funkcjonalności serwisu potwierdź swój adres e-mail. Możesz to zrobić klikając w poniższy link: <br><br>
+    <a href="{{ signedUrl|raw }}">Potwierdź swój adres e-mail</a>.<br>
+    Link przestanie być aktywny w ciągu:  {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
+
+<p>
+    Pozdrawiam!
+</p>

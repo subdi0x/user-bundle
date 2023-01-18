@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - zresetuj hasło{% endblock %}
+
+{% block body %}
+    <div class="position-relative" style="height: 88vh">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            {% if app.user %}
+                <div class="mb-3">
+                    <div class="alert alert-success text-center">
+                        Jesteś zalogowany jako <b>{{ app.user.username }}</b>,<br><a href="{{ path('app_logout') }}">wyloguj się</a>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Forgot Password -->
+                <div class="card" style="width: 300px">
+                    <div class="card-header">
+                        Zresetuj hasło
+                    </div>
+                    <div class="card-body">
+                        {% form_theme resetForm 'bootstrap_4_layout.html.twig' %}
+                        {{ form_start(resetForm) }}
+                        <div class="mb-3">
+                            {{ form_row(resetForm.plainPassword, {
+                                label: ' ',
+                                'attr': {'class': 'mb-3'}
+                            }) }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Zresetuj hasło</button>
+                        {{ form_end(resetForm) }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

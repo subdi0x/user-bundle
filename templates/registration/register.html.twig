@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - zarejestruj konto{% endblock %}
+
+{% block body %}
+    <div class="position-relative" style="height: 88vh">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            {% if app.user %}
+                <div class="mb-3">
+                    <div class="alert alert-success text-center">
+                        Jesteś zalogowany jako <b>{{ app.user.username }}</b>,<br><a href="{{ path('app_logout') }}">wyloguj się</a>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Register -->
+                <div class="card" style="width: 350px">
+                    <div class="card-header">
+                        Create Account
+                    </div>
+                    <div class="card-body">
+                        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                        {{ form_start(form) }}
+                        <div class="mb-3">
+                            {{ form_row(form.username) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.plainPassword, {
+                                'label_attr': {'class': 'form-class'}
+                            }) }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+
+                <a href="{{ path('app_login') }}">
+                    <span>Login</span>
+                </a>
+                <br/>
+                <a href="{{ path('app_forgot_password_request') }}">
+                    <span>Forgot Password</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

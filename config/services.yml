@@ -1,0 +1,31 @@
+parameters:
+    user.backend_user.class: 'Dixie\Bundle\UserBundle\Entity\User'
+
+services:
+    # default configuration for services in *only in this* file
+    _defaults:
+        # Enables a mechanism to automatically inject container dependencies into your services
+        autowire : true
+        # Enables auto-configuration mechanism
+        autoconfigure : true
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    DevBase\UserBundle\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Finder,Command,Migrations,Tests,Kernel.php}'
+
+    # ---------------------------------------------------------
+    # Register all controllers of UserBundle as services
+    # ---------------------------------------------------------
+    DevBase\UserBundle\Controller\:
+        resource: '../src/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    # ---------------------------------------------------------
+    # Register all commands of UserBundle as commands
+    # ---------------------------------------------------------
+    DevBase\UserBundle\Command\:
+        resource: '../src/Command'
+        tags: ['console.command']
